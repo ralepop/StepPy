@@ -59,14 +59,14 @@ class DFSAgent(Agent):
                     nodes.append(n.pos)
                     return Path(nodes)
 
-            unvisited = [n for n in neighbors if n.pos not in visited]
+            unvisited_neighbors = [n for n in neighbors if n.pos not in visited]
 
-            if not unvisited:
+            if not unvisited_neighbors:
                 break
 
-            min_cost = min(n.cost for n in unvisited)
+            min_cost = min(n.cost for n in unvisited_neighbors)
 
-            best = next(n for n in unvisited if n.cost == min_cost)
+            best = next(n for n in unvisited_neighbors if n.cost == min_cost)
 
             visited.add(best.pos)
             nodes.append(best.pos)
